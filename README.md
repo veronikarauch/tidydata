@@ -6,7 +6,8 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ##Steps taken to clean up the Data:
 
-###1)  I loaded both the train and the test data into R using the read.csv() function (stored  in values train.X and test.X) and performed the following steps:
+###1) Loading, cleaning data:
+-       I loaded both the train and the test data into R using the read.csv() function (stored  in values train.X and test.X) and performed the following steps:
 -	I used the Names in the features.txt file to label the columns in both the train.X and test.X data sets using the names() fucntion. From the README.txt file it was clear that both the train and test datasets had the same column variables since it used to be one dataset and had been randomnly split in a 7:3 ratio into training and test data.
 -	I then  loaded the volunteers and activity data into R ( again using read.csv ) . I added the volunteers of the experiment which are labelled 1:30 from file subject_test and subject_train to the corresponding train and test data sets as an extra column. I did the same with the activity labels which were stored in the y_train.txt and y_test.txt files. As a result both the train and test dataset have now 563 columns each rather than the original 561, Where column 562 is called “activities” and column 563 is called “volunteers”.
  To make the type of activity more understandable, the labeles are later changed from values 1:6 to WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
@@ -20,7 +21,48 @@ Subsequently, the body linear acceleration and angular velocity were derived in 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 These signals were used to estimate variables of the feature vector for each pattern:  
 
-?	'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.?	tBodyAcc-XYZ?	tGravityAcc-XY?	tBodyAccJerk-XYZ?	tBodyGyro-XYZ?	tBodyGyroJerk-XYZ?	tBodyAccMag?	tGravityAccMag?	tBodyAccJerkMag?	tBodyGyroMag?	tBodyGyroJerkMag?	fBodyAcc-XYZ?	fBodyAccJerk-XYZ?	fBodyGyro-XYZ?	fBodyAccMag?	fBodyAccJerkMag?	fBodyGyroMag?	fBodyGyroJerkMa?	The set of variables that were estimated from these signals are: ?	mean(): Mean value?	std(): Standard deviation?	mad(): Median absolute deviation ?	max(): Largest value in array?	min(): Smallest value in array?	sma(): Signal magnitude area?	energy(): Energy measure. Sum of the squares divided by the number of values. ?	iqr(): Interquartile range ?	entropy(): Signal entropy?	arCoeff(): Autorregresion coefficients with Burg order equal to 4?	correlation(): correlation coefficient between two signals?	maxInds(): index of the frequency component with largest magnitude?	meanFreq(): Weighted average of the frequency components to obtain a mean frequency?	skewness(): skewness of the frequency domain signal?	kurtosis(): kurtosis of the frequency domain signal ?	bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.?	angle(): Angle between to vectors.?	Additional vectors obtained by averaging the signals in a signal window sample. These are used on  	the angle() variable:?	gravityMean?	tBodyAccMean?	tBodyAccJerkMean?	tBodyGyroMean?	tBodyGyroJerkMean
+-	'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+-	tBodyAcc-XYZ
+-	tGravityAcc-XY
+-	tBodyAccJerk-XYZ
+-	tBodyGyro-XYZ
+-	tBodyGyroJerk-XYZ
+-	tBodyAccMag
+-	tGravityAccMag
+-	tBodyAccJerkMag
+-	tBodyGyroMag
+-	tBodyGyroJerkMag
+-	fBodyAcc-XYZ
+-	fBodyAccJerk-XYZ
+-	fBodyGyro-XYZ
+-	fBodyAccMag
+-	fBodyAccJerkMag
+-	fBodyGyroMag
+-	fBodyGyroJerkMa
+-	The set of variables that were estimated from these signals are: 
+-	mean(): Mean value
+-	std(): Standard deviation
+-	mad(): Median absolute deviation 
+-	max(): Largest value in array
+-	min(): Smallest value in array
+-	sma(): Signal magnitude area
+-	energy(): Energy measure. Sum of the squares divided by the number of values. 
+-	iqr(): Interquartile range 
+-	entropy(): Signal entropy
+-	arCoeff(): Autorregresion coefficients with Burg order equal to 4
+-	correlation(): correlation coefficient between two signals
+-	maxInds(): index of the frequency component with largest magnitude
+-	meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+-	skewness(): skewness of the frequency domain signal
+-	kurtosis(): kurtosis of the frequency domain signal 
+-	bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+-	angle(): Angle between to vectors.
+-	Additional vectors obtained by averaging the signals in a signal window sample. These are used on  	the angle() variable:
+-	gravityMean
+-	tBodyAccMean
+-	tBodyAccJerkMean
+-	tBodyGyroMean
+-	tBodyGyroJerkMean
 
 
 I then used the gsub() function in order to make those variables more descriptive by subbing short cuts like Acc, Gyro etc. for their actual full name
